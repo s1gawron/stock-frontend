@@ -1,29 +1,46 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '../components/Home.vue';
+import Login from '../components/Login.vue';
+import StockListings from '../components/StockListings.vue';
+import WalletDetails from '../components/WalletDetails.vue';
+import Registration from '../components/Registration.vue';
+import TransactionForm from '../components/TransactionForm.vue';
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
-];
-
-const router = new VueRouter({
+export default new VueRouter({
+  routes: [
+    {
+      path: '/user/login',
+      name: 'Login',
+      component: Login,
+    },
+    {
+      path: '/user/register',
+      name: 'Registration',
+      component: Registration,
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home,
+    },
+    {
+      path: '/stockListings/:index',
+      name: 'StockListings',
+      component: StockListings,
+    },
+    {
+      path: '/user/myWallet',
+      name: 'WalletDetails',
+      component: WalletDetails,
+    },
+    {
+      path: '/transaction/:index/:ticker',
+      name: 'TransactionForm',
+      component: TransactionForm,
+    },
+  ],
   mode: 'history',
-  base: process.env.BASE_URL,
-  routes,
 });
-
-export default router;
