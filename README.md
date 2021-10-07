@@ -1,4 +1,4 @@
-# stock-frontend
+# stock-frontend - work in progress
 
 ## Project setup
 ```
